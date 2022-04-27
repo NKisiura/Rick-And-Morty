@@ -1,9 +1,29 @@
 <div class="flex gap-3">
-  <button type="button"><<</button>
-  <button type="button"><</button>
-  <div></div>
+  <button type="button"
+          [routerLink]="url"
+          [queryParams]="{page: 1}"
+          [disabled]="currentPage === 1">
+    <<
+  </button>
+  <button type="button"
+          [routerLink]="url"
+          [queryParams]="{page: currentPage + 1}"
+          [disabled]="currentPage === 1">
+    <
+  </button>
+  <div>{{currentPage}}</div>
   <div>/</div>
-  <div></div>
-  <button type="button">></button>
-  <button type="button">>></button>
+  <div>{{pageCount}}</div>
+  <button type="button"
+          [routerLink]="url"
+          [queryParams]="{page: currentPage + 1}"
+          [disabled]="currentPage === pageCount">
+    >
+  </button>
+  <button type="button"
+          [routerLink]="url"
+          [queryParams]="{page: pageCount}"
+          [disabled]="currentPage === pageCount">
+    >>
+  </button>
 </div>
