@@ -6,6 +6,8 @@ import {PaginationComponent} from "./components/pagination.component";
   declarations: [PaginationComponent],
   imports: [CommonModule],
   providers: [],
-  exports: []
+    exports: [
+        PaginationComponent
+    ]
 })
 export class PaginationModule { }

@@ -6,6 +6,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {GetCharacterListService} from "./services/get-character-list.service";
 import {CharacterListFilterComponent} from "./components/character-list-filter/character-list-filter.component";
 import {CharacterComponent} from "./components/character/character.component";
+import {PaginationModule} from "../global/modules/pagination/pagination.module";
+import {NgSelectModule} from "@ng-select/ng-select";
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -28,7 +31,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    HttpClientModule
+    HttpClientModule,
+    PaginationModule,
+    NgSelectModule,
+    FormsModule
   ],
   providers: [GetCharacterListService],
   exports: []

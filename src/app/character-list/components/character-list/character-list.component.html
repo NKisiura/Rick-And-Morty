@@ -1,1 +1,8 @@
-<div class="text-9xl">character list component</div>
+<div class="container">
+  <div class="flex justify-between">
+    <app-character-list-filter
+      (onCharacterListFilterChange)="getCharacterListByFilter($event)">
+    </app-character-list-filter>
+    <app-pagination></app-pagination>
+  </div>
+</div>

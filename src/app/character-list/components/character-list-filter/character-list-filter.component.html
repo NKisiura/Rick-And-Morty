@@ -1,0 +1,16 @@
+<div class="flex gap-3">
+  <input type="text"
+         [(ngModel)]="characterListFilter.name"
+         (ngModelChange)="emitCharacterListFilter()">
+  <ng-select class="w-40"
+             [items]="characterAliveStatusTypes"
+             [(ngModel)]="characterListFilter.status"
+             (ngModelChange)="emitCharacterListFilter()">
+  </ng-select>
+  <ng-select class="w-40"
+             [items]="characterGenderTypes"
+             [(ngModel)]="characterListFilter.gender"
+             (ngModelChange)="emitCharacterListFilter()">
+  </ng-select>
+  <button type="button" (click)="resetCharacterListFilter()">reset</button>
+</div>
