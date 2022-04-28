@@ -3,6 +3,6 @@
     <app-character-list-filter
       (onCharacterListFilterChange)="getCharacterListByFilter($event)">
     </app-character-list-filter>
-    <app-pagination></app-pagination>
+    <app-pagination [currentPage]="currentPage"></app-pagination>
   </div>
 </div>

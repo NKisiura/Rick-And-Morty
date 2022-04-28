@@ -1,13 +1,11 @@
 <div class="flex gap-3">
   <button type="button"
-          [routerLink]="url"
-          [queryParams]="{page: 1}"
+          (click)="navigateToFirstPage()"
           [disabled]="currentPage === 1">
     <<
   </button>
   <button type="button"
-          [routerLink]="url"
-          [queryParams]="{page: currentPage + 1}"
+          (click)="navigateToPrevPage()"
           [disabled]="currentPage === 1">
     <
   </button>
@@ -15,14 +13,12 @@
   <div>/</div>
   <div>{{pageCount}}</div>
   <button type="button"
-          [routerLink]="url"
-          [queryParams]="{page: currentPage + 1}"
+          (click)="navigateToNextPage()"
           [disabled]="currentPage === pageCount">
     >
   </button>
   <button type="button"
-          [routerLink]="url"
-          [queryParams]="{page: pageCount}"
+          (click)="navigateToLastPage()"
           [disabled]="currentPage === pageCount">
     >>
   </button>
