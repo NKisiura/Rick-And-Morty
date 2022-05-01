@@ -5,7 +5,7 @@ import {GetCharacterListResponseInterface} from "../types/get-character-list-res
 import {API_BASE_URL} from "../../global/constants/api-constants";
 
 @Injectable()
-export class GetCharacterListService {
+export class CharacterListService {
 
   constructor(private http: HttpClient) {}
 

@@ -3,6 +3,11 @@
     <app-character-list-filter
       (onCharacterListFilterChange)="getCharacterListByFilter($event)">
     </app-character-list-filter>
-    <app-pagination [currentPage]="currentPage"></app-pagination>
+  <app-pagination [currentPage]="currentPage"></app-pagination>
+  </div>
+  <div>
+    <div *ngIf="characterListError$ | async">
+      {{(characterListError$ | async)!.error.error}}
+    </div>
   </div>
 </div>
