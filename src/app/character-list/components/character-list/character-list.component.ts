@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {CharacterListFilterInterface} from "../../types/character-list-filter.interface";
 import {Observable, Subject, takeUntil} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {API_CHARACTER_URL} from "../../../global/constants/api-constants";
 import {parse, ParsedQuery, ParsedUrl, parseUrl, stringify} from "query-string";
 import {select, Store} from "@ngrx/store";
 import {getCharacterListAction} from "../../store /get-character-list.action";
@@ -63,7 +62,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   private getCharacterList(): void {
     const parsedUrl: ParsedUrl = parseUrl(this.router.url);
     const paramsString = stringify(parsedUrl.query);
-    const fullUrl = paramsString ? API_CHARACTER_URL + '?' + paramsString : API_CHARACTER_URL;
-    this.store.dispatch(getCharacterListAction({url: fullUrl}))
+    const url = paramsString ? `?${paramsString}` : '';
+    this.store.dispatch(getCharacterListAction({url: url}))
   }
 }
