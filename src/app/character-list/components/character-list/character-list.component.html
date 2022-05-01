@@ -3,9 +3,9 @@
     <app-character-list-filter
       (onCharacterListFilterChange)="getCharacterListByFilter($event)">
     </app-character-list-filter>
-  <app-pagination [currentPage]="currentPage"
-                  [pageCount]="(characterListData$ | async) ? (characterListData$ | async)!.info.pages : 1">
-  </app-pagination>
+    <app-pagination [currentPage]="currentPage"
+                    [pageCount]="(characterListData$ | async) ? (characterListData$ | async)!.info.pages : 1">
+    </app-pagination>
   </div>
   <div>
     <app-loading *ngIf="isCharacterListLoading$ | async"></app-loading>
