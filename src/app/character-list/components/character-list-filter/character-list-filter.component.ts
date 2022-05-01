@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from "@angular/core";
 import {CharacterAliveStatusTypes, CharacterGenderTypes} from "../../../global/types/character.interface";
 import {CharacterListFilterInterface} from "../../types/character-list-filter.interface";
+import {debounce} from "lodash";
 
 @Component({
   selector: 'app-character-list-filter',
@@ -15,6 +16,10 @@ export class CharacterListFilterComponent {
   public emitCharacterListFilter(): void {
     this.onCharacterListFilterChange.emit(this.characterListFilter);
   }
+
+  public debounceEmitCharacterListFilter = debounce((): void => {
+    this.emitCharacterListFilter();
+  }, 600);
 
   public resetCharacterListFilter(): void {
     this.characterListFilter = {};
