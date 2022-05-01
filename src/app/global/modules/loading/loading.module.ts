@@ -10,6 +10,4 @@ import {LoadingComponent} from "./components/loading.component";
     LoadingComponent
   ]
 })
-export class LoadingModule {
-
-}
+export class LoadingModule {}
