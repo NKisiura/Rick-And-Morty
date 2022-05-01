@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
+import {CharacterDetailsModule} from "./character-details/character-details.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CharacterDetailsModule,
     CharacterListModule,
     PageNotFoundModule,
     StoreModule.forRoot({router: routerReducer}, {}),
