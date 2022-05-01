@@ -13,6 +13,7 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./store /get-character-list-reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {GetCharacterListEffect} from "./store /get-character-list.effect";
+import {LoadingModule} from "../global/modules/loading/loading.module";
 
 const routes: Routes = [
   {
@@ -40,7 +41,8 @@ const routes: Routes = [
     NgSelectModule,
     FormsModule,
     EffectsModule.forFeature([GetCharacterListEffect]),
-    StoreModule.forFeature('character-list', reducers)
+    StoreModule.forFeature('character-list', reducers),
+    LoadingModule
   ],
   providers: [CharacterListService],
   exports: []

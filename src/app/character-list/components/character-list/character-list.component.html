@@ -6,8 +6,7 @@
   <app-pagination [currentPage]="currentPage"></app-pagination>
   </div>
   <div>
-    <div *ngIf="characterListError$ | async">
-      {{(characterListError$ | async)!.error.error}}
-    </div>
+    <app-loading *ngIf="isCharacterListLoading$ | async"></app-loading>
+
   </div>
 </div>
