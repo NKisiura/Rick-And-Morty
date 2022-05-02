@@ -1,5 +1,8 @@
 <div>
-  character details component
-
-  need to get character id from url
+  <ng-container *ngIf="character$ | async">
+    <div *ngIf="(character$ | async)! as character">
+      <img src="{{character.image}}" alt="">
+      {{character.name}}
+    </div>
+  </ng-container>
 </div>
