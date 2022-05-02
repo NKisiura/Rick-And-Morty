@@ -39,7 +39,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   private getSingleCharacter(): void {
     const characterId = this.getCharacterIdFromCurrentRoute();
-    this.store.dispatch(getSingleCharacterAction({id: characterId}))
+    this.store.dispatch(getSingleCharacterAction({id: characterId}));
   }
 
   private getCharacterIdFromCurrentRoute(): string {
