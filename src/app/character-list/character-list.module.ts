@@ -10,9 +10,9 @@ import {PaginationModule} from "../global/modules/pagination/pagination.module";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {FormsModule} from "@angular/forms";
 import {StoreModule} from "@ngrx/store";
-import {reducers} from "./store /get-character-list-reducers";
+import {characterListReducers} from "./store /character-list-reducers";
 import {EffectsModule} from "@ngrx/effects";
-import {GetCharacterListEffect} from "./store /get-character-list.effect";
+import {GetCharacterListEffect} from "./store /character-list.effect";
 import {LoadingModule} from "../global/modules/loading/loading.module";
 import {BackendErrorMessageModule} from "../global/modules/backend-error-message/backend-error-message.module";
 
@@ -42,7 +42,7 @@ const routes: Routes = [
     NgSelectModule,
     FormsModule,
     EffectsModule.forFeature([GetCharacterListEffect]),
-    StoreModule.forFeature('character-list', reducers),
+    StoreModule.forFeature('character-list', characterListReducers),
     LoadingModule,
     BackendErrorMessageModule
   ],

@@ -4,9 +4,13 @@ import {Observable, Subject, takeUntil} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {parse, ParsedQuery, ParsedUrl, parseUrl, stringify} from "query-string";
 import {select, Store} from "@ngrx/store";
-import {getCharacterListAction} from "../../store /get-character-list.action";
+import {getCharacterListAction} from "../../store /character-list.action";
 import {GetCharacterListResponseInterface} from "../../types/get-character-list-response.interface";
-import {characterListSelector, errorSelector, isLoadingSelector} from "../../store /get-character-list-selectors";
+import {
+  characterListErrorSelector,
+  characterListLoadingSelector,
+  characterListSelector
+} from "../../store /character-list-selectors";
 import {BackendErrorInterface} from "../../../global/types/backend-error.interface";
 
 @Component({
@@ -39,9 +43,9 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   private initValues(): void {
-    this.isCharacterListLoading$ = this.store.pipe(select(isLoadingSelector));
+    this.isCharacterListLoading$ = this.store.pipe(select(characterListLoadingSelector));
     this.characterListData$ = this.store.pipe(select(characterListSelector));
-    this.characterListError$ = this.store.pipe(select(errorSelector));
+    this.characterListError$ = this.store.pipe(select(characterListErrorSelector));
   }
 
   private initListeners(): void {

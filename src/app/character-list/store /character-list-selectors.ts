@@ -4,7 +4,7 @@ import {CharacterListStateInterface} from "../types/character-list-state.interfa
 export const characterListFeatureSelector =
   createFeatureSelector<CharacterListStateInterface>('character-list');
 
-export const isLoadingSelector = createSelector(
+export const characterListLoadingSelector = createSelector(
   characterListFeatureSelector,
   (characterListState: CharacterListStateInterface) => characterListState.isLoading
 );
@@ -14,7 +14,7 @@ export const characterListSelector = createSelector(
   (characterListState: CharacterListStateInterface) => characterListState.data
 );
 
-export const errorSelector = createSelector(
+export const characterListErrorSelector = createSelector(
   characterListFeatureSelector,
   (characterListState: CharacterListStateInterface) => characterListState.error
 );

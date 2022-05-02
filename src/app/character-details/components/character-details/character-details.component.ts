@@ -26,7 +26,7 @@ export class CharacterDetailsComponent implements OnInit {
     private store: Store
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initValues();
     this.getSingleCharacter();
   }
@@ -37,7 +37,7 @@ export class CharacterDetailsComponent implements OnInit {
     this.characterError$ = this.store.pipe(select(singleCharacterErrorSelector));
   }
 
-  private getSingleCharacter() {
+  private getSingleCharacter(): void {
     const characterId = this.getCharacterIdFromCurrentRoute();
     this.store.dispatch(getSingleCharacterAction({id: characterId}))
   }

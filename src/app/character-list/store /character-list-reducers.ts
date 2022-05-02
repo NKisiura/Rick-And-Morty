@@ -4,7 +4,7 @@ import {
   getCharacterListAction,
   getCharacterListFailureAction,
   getCharacterListSuccessAction
-} from "./get-character-list.action";
+} from "./character-list.action";
 import {routerNavigationAction} from "@ngrx/router-store";
 
 const initialState: CharacterListStateInterface = {
@@ -41,6 +41,6 @@ const characterListReducer = createReducer(
   on(routerNavigationAction, (): CharacterListStateInterface => initialState)
 );
 
-export function reducers(state: CharacterListStateInterface, action: Action) {
+export function characterListReducers(state: CharacterListStateInterface, action: Action) {
   return characterListReducer(state, action);
 }

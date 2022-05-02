@@ -5,7 +5,7 @@ import {
   getCharacterListAction,
   getCharacterListFailureAction,
   getCharacterListSuccessAction
-} from "./get-character-list.action";
+} from "./character-list.action";
 import {catchError, map, of, switchMap} from "rxjs";
 import {GetCharacterListResponseInterface} from "../types/get-character-list-response.interface";
 import {BackendErrorInterface} from "../../global/types/backend-error.interface";
