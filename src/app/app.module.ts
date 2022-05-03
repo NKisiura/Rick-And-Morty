@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {CharacterDetailsModule} from "./character-details/character-details.module";
+import {HeaderModule} from "./global/modules/header/header.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {CharacterDetailsModule} from "./character-details/character-details.modu
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
