@@ -6,7 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {CharacterListService} from "./services/character-list.service";
 import {CharacterListFilterComponent} from "./components/character-list-filter/character-list-filter.component";
 import {CharacterComponent} from "./components/character/character.component";
-import {PaginationModule} from "../global/modules/pagination/pagination.module";
+import {PaginationModule} from "../global/modules/feature-components/pagination/pagination.module";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {FormsModule} from "@angular/forms";
 import {StoreModule} from "@ngrx/store";
