@@ -1,25 +1,33 @@
-<div class="flex gap-3">
+<div class="flex font-semibold text-xl text-orange">
   <button type="button"
+          class="mr-2"
           (click)="navigateToFirstPage()"
-          [disabled]="currentPage === 1">
-    <<
+          [disabled]="currentPage === 1"
+          [style.opacity]="currentPage === 1 ? 0.6 : 1">
+    <fa-icon [icon]="iconArrowLeftDouble"></fa-icon>
   </button>
   <button type="button"
+          class="mr-2"
           (click)="navigateToPrevPage()"
-          [disabled]="currentPage === 1">
-    <
+          [disabled]="currentPage === 1"
+          [style.opacity]="currentPage === 1 ? 0.6 : 1">
+    <fa-icon [icon]="iconArrowLeft"></fa-icon>
   </button>
   <div>{{currentPage}}</div>
-  <div>/</div>
+  <div class="mx-1.5">/</div>
   <div>{{pageCount}}</div>
   <button type="button"
+          class="ml-2"
           (click)="navigateToNextPage()"
-          [disabled]="currentPage === pageCount">
-    >
+          [disabled]="currentPage === pageCount"
+          [style.opacity]="currentPage === pageCount ? 0.6 : 1">
+    <fa-icon [icon]="iconArrowRight"></fa-icon>
   </button>
   <button type="button"
+          class="ml-2"
           (click)="navigateToLastPage()"
-          [disabled]="currentPage === pageCount">
-    >>
+          [disabled]="currentPage === pageCount"
+          [style.opacity]="currentPage === pageCount ? 0.6 : 1">
+    <fa-icon [icon]="iconArrowRightDouble"></fa-icon>
   </button>
 </div>
