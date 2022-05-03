@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="flex justify-between items-center">
-<!--    here need to create a component who will contains some components and just be a wrapper-->
-<!--    <app-controls>app character list / app pagination / app go back to character list</app-controls>-->
-    <app-character-list-filter
-      (onCharacterListFilterChange)="getCharacterListByFilter($event)">
-    </app-character-list-filter>
-    <app-pagination [currentPage]="currentPage"
-                    [pageCount]="(characterListData$ | async) ? (characterListData$ | async)!.info.pages : 1">
-    </app-pagination>
-  </div>
-  <div>
+<div class="sticky top-[56px]">
+  <app-control-section>
+    <div class="flex justify-between items-center">
+      <app-character-list-filter
+        (onCharacterListFilterChange)="getCharacterListByFilter($event)">
+      </app-character-list-filter>
+      <app-pagination [currentPage]="currentPage"
+                      [pageCount]="(characterListData$ | async) ? (characterListData$ | async)!.info.pages : 1">
+      </app-pagination>
+    </div>
+  </app-control-section>
+</div>
+<div>
+  <div class="container">
     <app-loading *ngIf="isCharacterListLoading$ | async"></app-loading>
     <app-backend-error-message
       *ngIf="characterListError$ | async"
