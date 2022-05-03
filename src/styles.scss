@@ -72,6 +72,11 @@
     }
   }
 
+  .ng-placeholder {
+    opacity: 0.5;
+    color: orange !important;
+  }
+
   &.ng-select-opened {
 
     .ng-arrow {
