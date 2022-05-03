@@ -1,0 +1,12 @@
+<div class="flex items-center">
+  <fa-icon [icon]="themeIconDay"
+           class="text-orange text-2xl mr-3">
+  </fa-icon>
+  <button type="button"
+          (click)="toggleAppTheme()"
+          class="px-6 py-3.5 rounded-3xl bg-orange relative duration-200 before:content[''] before:absolute before:w-5 before:h-5 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-200 before:top-1 before:left-1 dark:before:left-6">
+  </button>
+  <fa-icon [icon]="themeIconNight"
+           class="text-orange text-2xl ml-3">
+  </fa-icon>
+</div>

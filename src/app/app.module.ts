@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {CharacterDetailsModule} from "./character-details/character-details.module";
 import {HeaderModule} from "./global/modules/header/header.module";
+import {TimeService} from "./global/services/time.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {HeaderModule} from "./global/modules/header/header.module";
     StoreRouterConnectingModule.forRoot(),
     HeaderModule
   ],
-  providers: [],
+  providers: [TimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
