@@ -1,12 +1,11 @@
 <div class="min-h-screen bg-light-theme-main-bg dark:bg-dark-theme-main-bg transition-colors duration-200 ease-in-out">
-  <div class="sticky top-0">
+  <div class="sticky top-0 z-20">
     <app-header></app-header>
   </div>
   <div class='min-h-[calc(100vh-88px)]'>
-
+    <router-outlet></router-outlet>
   </div>
   <div class="sticky bottom-0">
     <app-footer></app-footer>
   </div>
 </div>
-<!--<router-outlet></router-outlet>-->
