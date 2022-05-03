@@ -8,6 +8,7 @@ import {CharacterDetailsEffect} from "./store/character-details.effect";
 import {StoreModule} from "@ngrx/store";
 import {CharacterDetailsService} from "./services/character-details.service";
 import {characterDetailsReducers} from "./store/charcater-details-reducers";
+import {ControlSectionModule} from "../global/modules/layouts/control-section/control-section.module";
 
 const routes: Routes = [
   {
@@ -18,13 +19,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CharacterDetailsComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    HttpClientModule,
-    EffectsModule.forFeature([CharacterDetailsEffect]),
-    StoreModule.forFeature('character-details', characterDetailsReducers)
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        HttpClientModule,
+        EffectsModule.forFeature([CharacterDetailsEffect]),
+        StoreModule.forFeature('character-details', characterDetailsReducers),
+        ControlSectionModule
+    ],
   providers: [CharacterDetailsService],
   exports: []
 })

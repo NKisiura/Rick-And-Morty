@@ -1,5 +1,11 @@
 <div class="py-4 bg-light-theme-main-bg dark:bg-dark-theme-main-bg transition-colors duration-200 ease-in-out">
   <div class="container">
+    <button type="button"
+            class="text-orange text-xl font-semibold relative before:'' before:absolute before:bottom-0 before:w-0 before:h-0.5 before:bg-orange before:rounded-xl before:transition-all before:duration-200 before:ease-in-out hover:before:w-full"
+            *ngIf="hasBackToCharacterListButton"
+            (click)="navigateToCharacterList()">
+      <fa-icon class="mr-2" [icon]="iconLongArrowLeft"></fa-icon>Back to all characters
+    </button>
     <ng-content></ng-content>
   </div>
 </div>

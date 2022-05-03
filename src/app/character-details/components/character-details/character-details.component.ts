@@ -16,7 +16,6 @@ import {getSingleCharacterAction} from "../../store/character-details.action";
   templateUrl: './character-details.component.html'
 })
 export class CharacterDetailsComponent implements OnInit {
-
   public isCharacterLoading$ = new Observable<boolean>();
   public character$ = new Observable<CharacterInterface | null>();
   public characterError$ = new Observable<BackendErrorInterface | null>();
