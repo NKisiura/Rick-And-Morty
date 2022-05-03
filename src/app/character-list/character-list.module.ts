@@ -13,8 +13,8 @@ import {StoreModule} from "@ngrx/store";
 import {characterListReducers} from "./store /character-list-reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {GetCharacterListEffect} from "./store /character-list.effect";
-import {LoadingModule} from "../global/modules/loading/loading.module";
-import {BackendErrorMessageModule} from "../global/modules/backend-error-message/backend-error-message.module";
+import {LoadingModule} from "../global/modules/layouts/loading/loading.module";
+import {BackendErrorMessageModule} from "../global/modules/layouts/backend-error-message/backend-error-message.module";
 
 const routes: Routes = [
   {
