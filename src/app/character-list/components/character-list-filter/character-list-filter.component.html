@@ -1,4 +1,4 @@
-<div class="flex gap-3">
+<div class="flex gap-4">
   <input type="text"
          class='text-center w-40 h-8 px-3 rounded-xl text-orange font-semibold bg-light-theme-secondary-bg dark:bg-dark-theme-secondary-bg focus: outline-0 placeholder:opacity-50 transition-colors duration-200 ease-in-out'
          [(ngModel)]="characterListFilter.name"
@@ -14,5 +14,7 @@
              [(ngModel)]="characterListFilter.gender"
              (ngModelChange)="emitCharacterListFilter()">
   </ng-select>
-  <button type="button" (click)="resetCharacterListFilter()">reset</button>
+  <app-button [buttonName]="'Reset Filter'"
+              (click)="resetCharacterListFilter()">
+  </app-button>
 </div>

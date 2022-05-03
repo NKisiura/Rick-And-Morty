@@ -15,6 +15,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {GetCharacterListEffect} from "./store /character-list.effect";
 import {LoadingModule} from "../global/modules/layouts/loading/loading.module";
 import {BackendErrorMessageModule} from "../global/modules/layouts/backend-error-message/backend-error-message.module";
+import {ButtonsModule} from "../global/modules/basic-components/buttons.module";
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
     EffectsModule.forFeature([GetCharacterListEffect]),
     StoreModule.forFeature('character-list', characterListReducers),
     LoadingModule,
-    BackendErrorMessageModule
+    BackendErrorMessageModule,
+    ButtonsModule
   ],
   providers: [CharacterListService],
   exports: []
