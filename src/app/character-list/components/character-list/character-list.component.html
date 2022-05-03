@@ -1,4 +1,4 @@
-<div class="sticky top-[56px]">
+<div class="sticky top-[56px] z-10">
   <app-control-section>
     <div class="flex justify-between items-center">
       <app-character-list-filter
@@ -18,8 +18,10 @@
       [errorMessage]="(characterListError$ | async)!.error.error">
     </app-backend-error-message>
     <ng-container *ngIf="characterListData$ | async">
-      <div *ngFor="let character of (characterListData$ | async)!.results">
-        <app-character [character]="character"></app-character>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pb-4">
+        <div *ngFor="let character of (characterListData$ | async)!.results">
+          <app-character [character]="character"></app-character>
+        </div>
       </div>
     </ng-container>
   </div>

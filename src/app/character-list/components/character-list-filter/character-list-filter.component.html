@@ -1,7 +1,7 @@
 <div class="flex gap-4">
   <input type="text"
          placeholder="Character name"
-         class='text-center w-40 h-8 px-3 rounded-xl text-orange font-semibold bg-light-theme-secondary-bg dark:bg-dark-theme-secondary-bg focus: outline-0 placeholder:opacity-50 placeholder:text-orange transition-colors duration-200 ease-in-out'
+         class='text-center w-40 h-8 px-3 rounded-xl text-orange font-semibold bg-light-theme-secondary-bg dark:bg-dark-theme-secondary-bg focus: outline-0 placeholder:text-orange transition-colors duration-200 ease-in-out'
          [(ngModel)]="characterListFilter.name"
          (ngModelChange)="debounceEmitCharacterListFilter()">
   <ng-select class="ng-select-default w-40"
