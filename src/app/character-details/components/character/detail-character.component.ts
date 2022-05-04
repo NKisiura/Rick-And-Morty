@@ -2,7 +2,7 @@ import {Component, Input} from "@angular/core";
 import {CharacterInterface} from "../../../global/types/character.interface";
 import {
   faClapperboard,
-  faDna,
+  faDna, faGlobe,
   faHeartPulse,
   faPersonHalfDress,
   faRobot,
@@ -20,6 +20,7 @@ export class DetailCharacterComponent {
   public typeIcon = faDna;
   public seenCountIcon = faClapperboard;
   public firstSeenIcon = faVideo;
+  public locationIcon = faGlobe
 
   @Input() public character!: CharacterInterface;
 }

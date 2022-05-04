@@ -28,7 +28,7 @@
     </ng-container>
     <ng-container *ngIf="character.location"
                   [ngTemplateOutlet]="characterPropertyTemplate"
-                  [ngTemplateOutletContext]="{title: 'Last known location', value: character.location.name, icon: typeIcon, width: 60}">
+                  [ngTemplateOutletContext]="{title: 'Last known location', value: character.location.name, icon: locationIcon, width: 60}">
     </ng-container>
   </div>
 </div>
