@@ -1,14 +1,12 @@
-<div>
-  <div>
-    <app-control-section [hasBackToCharacterListButton]="true">
-    </app-control-section>
-  </div>
-  <div class="container">
-    <ng-container *ngIf="character$ | async">
-      <div *ngIf="(character$ | async)! as character">
-        <img src="{{character.image}}" alt="">
-        {{character.name}}
-      </div>
-    </ng-container>
-  </div>
+<div class="sticky top-[56px] z-10">
+  <app-control-section [hasBackToCharacterListButton]="true">
+  </app-control-section>
+</div>
+<div class="container">
+  <ng-container *ngIf="character$ | async">
+    <div *ngIf="(character$ | async)! as character">
+      <img src="{{character.image}}" alt="">
+      {{character.name}}
+    </div>
+  </ng-container>
 </div>
