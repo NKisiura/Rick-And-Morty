@@ -11,6 +11,8 @@ import {characterDetailsReducers} from "./store/charcater-details-reducers";
 import {ControlSectionModule} from "../global/modules/layouts/control-section/control-section.module";
 import {LoadingModule} from "../global/modules/layouts/loading/loading.module";
 import {BackendErrorMessageModule} from "../global/modules/layouts/backend-error-message/backend-error-message.module";
+import {DetailCharacterComponent} from "./components/character/detail-character.component";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 const routes: Routes = [
   {
@@ -20,7 +22,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [CharacterDetailsComponent],
+  declarations: [CharacterDetailsComponent, DetailCharacterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -29,11 +31,10 @@ const routes: Routes = [
     StoreModule.forFeature('character-details', characterDetailsReducers),
     ControlSectionModule,
     LoadingModule,
-    BackendErrorMessageModule
+    BackendErrorMessageModule,
+    FontAwesomeModule
   ],
   providers: [CharacterDetailsService],
   exports: []
 })
-export class CharacterDetailsModule {
-
-}
+export class CharacterDetailsModule {}

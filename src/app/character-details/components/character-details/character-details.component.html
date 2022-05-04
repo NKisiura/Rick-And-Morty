@@ -9,9 +9,7 @@
     [errorMessage]="(characterError$ | async)!.error.error">
   </app-backend-error-message>
   <ng-container *ngIf="character$ | async">
-    <div *ngIf="(character$ | async)! as character">
-      <img src="{{character.image}}" alt="">
-      {{character.name}}
-    </div>
+    <app-detail-character [character]="(character$ | async)!"></app-detail-character>
   </ng-container>
 </div>
+

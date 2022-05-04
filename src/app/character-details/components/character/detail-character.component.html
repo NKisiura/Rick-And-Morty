@@ -1,0 +1,48 @@
+<div class="p-4 flex rounded-2xl bg-light-theme-secondary-bg dark:bg-dark-theme-secondary-bg transition-colors duration-200 ease-in-out">
+  <img class="rounded-2xl" src="{{character.image}}" alt="character image">
+  <div class="ml-4">
+    <div class="text-3xl font-bold text-light-theme-main-text dark:text-dark-theme-main-text transition-colors duration-200 ease-in-out">{{character.name}}</div>
+    <ng-container *ngIf="character.status"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'Status', value: character.status, icon: aliveIcon, width: 24}">
+    </ng-container>
+    <ng-container *ngIf="character.gender"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'Gender', value: character.gender, icon: genderIcon, width: 24}">
+    </ng-container>
+    <ng-container *ngIf="character.species"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'Species', value: character.species, icon: speciesIcon, width: 24}">
+    </ng-container>
+    <ng-container *ngIf="character.type"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'Type', value: character.type, icon: typeIcon, width: 24}">
+    </ng-container>
+    <ng-container *ngIf="character.episode"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'Series count', value: character.episode.length + ' Episodes', icon: seenCountIcon, width: 60}">
+    </ng-container>
+    <ng-container *ngIf="character.episode"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'First seen in', value: character.episode[0], icon: firstSeenIcon, width: 60}">
+    </ng-container>
+    <ng-container *ngIf="character.location"
+                  [ngTemplateOutlet]="characterPropertyTemplate"
+                  [ngTemplateOutletContext]="{title: 'Last known location', value: character.location.name, icon: typeIcon, width: 60}">
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #characterPropertyTemplate let-title="title" let-value="value" let-icon="icon" let-width="width">
+  <div class="mt-2 text-xl flex">
+    <div class="w-7 flex justify-center mr-2">
+      <fa-icon class="text-orange" [icon]="icon"></fa-icon>
+    </div>
+    <div class="w-56 font-semibold text-light-theme-secondary-text dark:text-dark-theme-main-text transition-colors duration-200 ease-in-out">
+      {{title}}:
+    </div>
+    <div class="text-dark-theme-secondary-text transition-colors duration-200 ease-in-out">
+      {{value}}
+    </div>
+  </div>
+</ng-template>
