@@ -3,6 +3,11 @@
   </app-control-section>
 </div>
 <div class="container">
+  <app-loading *ngIf="isCharacterLoading$ | async"></app-loading>
+  <app-backend-error-message
+    *ngIf="characterError$ | async"
+    [errorMessage]="(characterError$ | async)!.error.error">
+  </app-backend-error-message>
   <ng-container *ngIf="character$ | async">
     <div *ngIf="(character$ | async)! as character">
       <img src="{{character.image}}" alt="">
