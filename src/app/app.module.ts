@@ -14,6 +14,7 @@ import {CharacterDetailsModule} from "./character-details/character-details.modu
 import {HeaderModule} from "./global/modules/layouts/header/header.module";
 import {TimeService} from "./global/services/time.service";
 import {FooterModule} from "./global/modules/layouts/footer/footer.module";
+import {LocalStorageService} from "./global/services/local-storage.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {FooterModule} from "./global/modules/layouts/footer/footer.module";
     HeaderModule,
     FooterModule
   ],
-  providers: [TimeService],
+  providers: [TimeService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
