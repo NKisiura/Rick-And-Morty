@@ -5,7 +5,7 @@ import {BackendErrorInterface} from "../../../global/types/backend-error.interfa
 
 export const getSingleCharacterAction = createAction(
   CharacterDetailsActionTypes.GET_SINGLE_CHARACTER,
-  props<{id: string}>()
+  props<{id: number}>()
 );
 
 export const getSingleCharacterSuccessAction = createAction(

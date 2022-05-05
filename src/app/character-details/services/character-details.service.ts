@@ -10,7 +10,7 @@ export class CharacterDetailsService {
 
   constructor(private http: HttpClient) {}
 
-  public getSingleCharacter(id: string): Observable<CharacterInterface> {
+  public getSingleCharacter(id: number): Observable<CharacterInterface> {
     return this.http.get<CharacterInterface>(API_BASE_URL + API_CHARACTER_URL + id);
   }
 

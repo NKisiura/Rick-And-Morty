@@ -58,7 +58,7 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
   }
 
   private getSingleCharacter(): void {
-    const characterId = this.getCharacterIdFromCurrentRoute();
+    const characterId = +this.getCharacterIdFromCurrentRoute();
     this.store.dispatch(getSingleCharacterAction({id: characterId}));
   }
 
