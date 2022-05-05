@@ -8,8 +8,10 @@
     *ngIf="characterError$ | async"
     [errorMessage]="(characterError$ | async)!.error.error">
   </app-backend-error-message>
-  <ng-container *ngIf="character$ | async">
-    <app-detail-character [character]="(character$ | async)!"></app-detail-character>
+  <ng-container *ngIf="(character$ | async) && (firstEpisode$ | async)">
+    <app-detail-character [character]="(character$ | async)!"
+                          [firstEpisode]="(firstEpisode$ | async)!">
+    </app-detail-character>
   </ng-container>
 </div>
 

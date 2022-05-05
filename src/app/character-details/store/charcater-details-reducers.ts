@@ -4,12 +4,18 @@ import {
   getSingleCharacterAction,
   getSingleCharacterFailureAction,
   getSingleCharacterSuccessAction
-} from "./character-details.action";
+} from "./actions/character-details.action";
 import {routerNavigationAction} from "@ngrx/router-store";
+import {
+  getFirstEpisodeAction,
+  getFirstEpisodeFailureAction,
+  getFirstEpisodeSuccessAction
+} from "./actions/first-episode.action";
 
 const initialState: CharacterDetailsStateInterface = {
   isLoading: false,
-  data: null,
+  character: null,
+  firstEpisode: null,
   error: null
 }
 
@@ -27,11 +33,34 @@ const characterDetailsReducer = createReducer(
     (state, action): CharacterDetailsStateInterface => ({
       ...state,
       isLoading: false,
-      data: action.character
+      character: action.character
     })
   ),
   on(
     getSingleCharacterFailureAction,
+    (state, action): CharacterDetailsStateInterface => ({
+      ...state,
+      isLoading: false,
+      error: action.error
+    })
+  ),
+  on(
+    getFirstEpisodeAction,
+    (state): CharacterDetailsStateInterface => ({
+      ...state,
+      isLoading: true
+    })
+  ),
+  on(
+    getFirstEpisodeSuccessAction,
+    (state, action): CharacterDetailsStateInterface => ({
+      ...state,
+      isLoading: false,
+      firstEpisode: action.firstEpisode
+    })
+  ),
+  on(
+    getFirstEpisodeFailureAction,
     (state, action): CharacterDetailsStateInterface => ({
       ...state,
       isLoading: false,

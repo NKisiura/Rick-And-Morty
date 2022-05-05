@@ -11,7 +11,12 @@ export const singleCharacterLoadingSelector = createSelector(
 
 export const singleCharacterSelector = createSelector(
   characterDetailsFeatureSelector,
-  (characterDetailsState: CharacterDetailsStateInterface) => characterDetailsState.data
+  (characterDetailsState: CharacterDetailsStateInterface) => characterDetailsState.character
+);
+
+export const firstEpisodeSelector = createSelector(
+  characterDetailsFeatureSelector,
+  (characterDetailsState: CharacterDetailsStateInterface) => characterDetailsState.firstEpisode
 );
 
 export const singleCharacterErrorSelector = createSelector(

@@ -4,7 +4,7 @@ import {CharacterDetailsComponent} from "./components/character-details/characte
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {EffectsModule} from "@ngrx/effects";
-import {CharacterDetailsEffect} from "./store/character-details.effect";
+import {CharacterDetailsEffect} from "./store/effects/character-details.effect";
 import {StoreModule} from "@ngrx/store";
 import {CharacterDetailsService} from "./services/character-details.service";
 import {characterDetailsReducers} from "./store/charcater-details-reducers";
@@ -13,6 +13,7 @@ import {LoadingModule} from "../global/modules/layouts/loading/loading.module";
 import {BackendErrorMessageModule} from "../global/modules/layouts/backend-error-message/backend-error-message.module";
 import {DetailCharacterComponent} from "./components/character/detail-character.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {FirstEpisodeEffect} from "./store/effects/first-episode.effect";
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
-    EffectsModule.forFeature([CharacterDetailsEffect]),
+    EffectsModule.forFeature([CharacterDetailsEffect, FirstEpisodeEffect]),
     StoreModule.forFeature('character-details', characterDetailsReducers),
     ControlSectionModule,
     LoadingModule,

@@ -8,6 +8,7 @@ import {
   faRobot,
   faVideo
 } from "@fortawesome/free-solid-svg-icons";
+import {EpisodeInterface} from "../../types/episode.interface";
 
 @Component({
   selector: 'app-detail-character',
@@ -23,4 +24,9 @@ export class DetailCharacterComponent {
   public locationIcon = faGlobe
 
   @Input() public character!: CharacterInterface;
+  @Input() public firstEpisode!: EpisodeInterface;
+
+  public getFirstEpisodeString(): string {
+    return `${this.firstEpisode.episode} "${this.firstEpisode.name}"`
+  }
 }

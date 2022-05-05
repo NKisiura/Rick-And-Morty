@@ -14,7 +14,7 @@ export class CharacterDetailsService {
     return this.http.get<CharacterInterface>(API_BASE_URL + API_CHARACTER_URL + id);
   }
 
-  public getCharacterFirstEpisode(id: string): Observable<EpisodeInterface> {
+  public getCharacterFirstEpisode(id: number): Observable<EpisodeInterface> {
     return this.http.get<EpisodeInterface>(API_BASE_URL + API_EPISODE_URL + id);
   }
 }

@@ -1,14 +1,14 @@
 import {Injectable} from "@angular/core";
-import {CharacterDetailsService} from "../services/character-details.service";
+import {CharacterDetailsService} from "../../services/character-details.service";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {
   getSingleCharacterAction,
   getSingleCharacterFailureAction,
   getSingleCharacterSuccessAction
-} from "./character-details.action";
+} from "../actions/character-details.action";
 import {catchError, map, of, switchMap} from "rxjs";
-import {CharacterInterface} from "../../global/types/character.interface";
-import {BackendErrorInterface} from "../../global/types/backend-error.interface";
+import {CharacterInterface} from "../../../global/types/character.interface";
+import {BackendErrorInterface} from "../../../global/types/backend-error.interface";
 
 @Injectable()
 export class CharacterDetailsEffect {

@@ -1,7 +1,7 @@
 import {createAction, props} from "@ngrx/store";
-import {CharacterDetailsActionTypes} from "./character-details-action-types";
-import {CharacterInterface} from "../../global/types/character.interface";
-import {BackendErrorInterface} from "../../global/types/backend-error.interface";
+import {CharacterDetailsActionTypes} from "../character-details-action-types";
+import {CharacterInterface} from "../../../global/types/character.interface";
+import {BackendErrorInterface} from "../../../global/types/backend-error.interface";
 
 export const getSingleCharacterAction = createAction(
   CharacterDetailsActionTypes.GET_SINGLE_CHARACTER,

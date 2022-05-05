@@ -22,9 +22,9 @@
                   [ngTemplateOutlet]="characterPropertyTemplate"
                   [ngTemplateOutletContext]="{title: 'Series count', value: character.episode.length + ' Episodes', icon: seenCountIcon, width: 60}">
     </ng-container>
-    <ng-container *ngIf="character.episode"
+    <ng-container *ngIf="firstEpisode"
                   [ngTemplateOutlet]="characterPropertyTemplate"
-                  [ngTemplateOutletContext]="{title: 'First seen in', value: character.episode[0], icon: firstSeenIcon, width: 60}">
+                  [ngTemplateOutletContext]="{title: 'First seen in', value: getFirstEpisodeString(), icon: firstSeenIcon, width: 60}">
     </ng-container>
     <ng-container *ngIf="character.location"
                   [ngTemplateOutlet]="characterPropertyTemplate"
