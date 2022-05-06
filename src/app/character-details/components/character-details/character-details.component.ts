@@ -37,7 +37,7 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
     this.getSingleCharacter();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngDestroy.next();
     this.ngDestroy.complete();
   }
@@ -53,16 +53,24 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
     this.character$
       .pipe(takeUntil(this.ngDestroy), skip(1))
       .subscribe((character) => {
-        if (character) this.store.dispatch(getFirstEpisodeAction({id: character.id}));
+        if (character) this.store.dispatch(getFirstEpisodeAction({id: CharacterDetailsComponent.getFirstEpisodeIdFromCharacter(character)}));
       })
   }
 
   private getSingleCharacter(): void {
-    const characterId = +this.getCharacterIdFromCurrentRoute();
+    const characterId = this.getCharacterIdFromCurrentRoute();
     this.store.dispatch(getSingleCharacterAction({id: characterId}));
   }
 
-  private getCharacterIdFromCurrentRoute(): string {
-    return this.router.url.split('/').filter(string => !!+string)[0];
+  private getCharacterIdFromCurrentRoute(): number {
+    return CharacterDetailsComponent.getIdFromUrl(this.router.url);
+  }
+
+  private static getFirstEpisodeIdFromCharacter(character: CharacterInterface): number {
+    return CharacterDetailsComponent.getIdFromUrl(character.episode[0]);
+  }
+
+  private static getIdFromUrl(url: string): number {
+    return +url.split('/').filter(string => !!+string)[0];
   }
 }
