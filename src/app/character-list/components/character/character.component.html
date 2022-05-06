@@ -5,12 +5,12 @@
     <img src="{{character.image}}" alt="character-image" class="w-full rounded-t-xl">
   </div>
   <div class="p-4">
-    <div class="text-xl font-bold">{{character.name}}</div>
+    <div class="text-xl font-bold overflow-hidden whitespace-nowrap overflow-ellipsis">{{character.name}}</div>
     <div class="flex items-center text-dark-theme-secondary-text dark:text-dark-theme-secondary-text">
-      <div class="w-2.5 h-2.5 rounded-full mr-1.5" [style.background-color]="character.status === 'Dead' ? '#ff4242' : character.status === 'Alive' ? '#0aea0a' : '#aeaeae'"></div>
+      <div class="w-2.5 h-2.5 min-w-[0.625rem] rounded-full mr-1.5" [style.background-color]="character.status === 'Dead' ? '#ff4242' : character.status === 'Alive' ? '#0aea0a' : '#aeaeae'"></div>
       <div class="capitalize">{{character.status}}</div>
       <div class="mx-1.5">-</div>
-      <div>{{character.species}}</div>
+      <div class="whitespace-nowrap overflow-ellipsis overflow-hidden">{{character.species}}</div>
     </div>
   </div>
 </div>
