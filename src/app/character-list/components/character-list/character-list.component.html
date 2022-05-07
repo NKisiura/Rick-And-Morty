@@ -1,10 +1,11 @@
 <div class="sticky top-[56px] z-10">
   <app-control-section>
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col gap-4 lg:flex-row justify-between">
       <app-character-list-filter
         (onCharacterListFilterChange)="getCharacterListByFilter($event)">
       </app-character-list-filter>
-      <app-pagination [currentPage]="currentPage"
+      <app-pagination class="my-0 mx-auto lg:m-0"
+                      [currentPage]="currentPage"
                       [pageCount]="(characterListData$ | async) ? (characterListData$ | async)!.info.pages : 1">
       </app-pagination>
     </div>
