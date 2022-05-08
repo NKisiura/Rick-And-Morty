@@ -18,7 +18,7 @@
     [errorMessage]="(characterListError$ | async)!.error.error">
   </app-backend-error-message>
   <ng-container *ngIf="characterListData$ | async">
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pb-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pb-4">
       <div *ngFor="let character of (characterListData$ | async)!.results">
         <app-character [character]="character"></app-character>
       </div>
