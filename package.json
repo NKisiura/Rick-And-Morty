@@ -28,6 +28,7 @@
     "@ngrx/router-store": "^13.1.0",
     "@ngrx/store": "^13.1.0",
     "@ngrx/store-devtools": "^13.1.0",
+    "angular-cli-ghpages": "^1.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
     "query-string": "^7.1.1",
