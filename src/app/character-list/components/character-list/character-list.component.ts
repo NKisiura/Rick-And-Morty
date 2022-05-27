@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {CharacterListFilterInterface} from "../../types/character-list-filter.interface";
-import {Observable, Subject, takeUntil} from "rxjs";
+import {fromEvent, Observable, pairwise, pluck, Subject, takeUntil} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {parse, ParsedQuery, ParsedUrl, parseUrl, stringify} from "query-string";
 import {select, Store} from "@ngrx/store";
@@ -25,6 +25,8 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   public isCharacterListLoading$ = new Observable<boolean>();
   public characterListData$ = new Observable<GetCharacterListResponseInterface | null>();
   public characterListError$ = new Observable<BackendErrorInterface | null>();
+
+  public isHideControls: boolean = false;
 
   constructor(
     private router: Router,
@@ -55,6 +57,18 @@ export class CharacterListComponent implements OnInit, OnDestroy {
         this.currentPage = +params['page'] || 1;
         this.getCharacterList();
       })
+
+    fromEvent(window, 'scroll')
+      .pipe(
+        takeUntil(this.ngDestroy),
+        pluck('target', 'scrollingElement', 'scrollTop'),
+        pairwise()
+      )
+      .subscribe((scrollPairValues: any) => this.checkIsNeedToHideControls(scrollPairValues))
+  }
+
+  private checkIsNeedToHideControls(scrollPairValues: [number, number]): void {
+    this.isHideControls = scrollPairValues[0] < scrollPairValues[1] && scrollPairValues[1] > 50;
   }
 
   public async getCharacterListByFilter(filter: CharacterListFilterInterface): Promise<void> {

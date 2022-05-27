@@ -15,7 +15,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {GetCharacterListEffect} from "./store /character-list.effect";
 import {LoadingModule} from "../global/modules/layouts/loading/loading.module";
 import {BackendErrorMessageModule} from "../global/modules/layouts/backend-error-message/backend-error-message.module";
-import {ButtonsModule} from "../global/modules/basic-components/buttons.module";
+import {ButtonsModule} from "../global/modules/basic-components/button/buttons.module";
 import {ControlSectionModule} from "../global/modules/layouts/control-section/control-section.module";
 
 const routes: Routes = [

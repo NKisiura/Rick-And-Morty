@@ -11,9 +11,11 @@ export class ThemeTogglerComponent {
   public themeIconDay = faCloudSun;
   public themeIconNight = faCloudMoon;
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(
+    private localStorageService: LocalStorageService
+  ) {}
 
-  public toggleAppTheme() {
+  public toggleAppTheme(): void {
     document.documentElement.classList.toggle('dark');
     const currentTheme = this.localStorageService.get('theme');
     this.localStorageService.set('theme', ThemeTogglerComponent.getInverseTheme(currentTheme));

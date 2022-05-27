@@ -28,8 +28,7 @@ export class AppComponent {
   }
 
   private setAppThemeByUserLocalTime(): void {
-    const userTimeOfDay = this.timeService.getUserLocalTimeOfDay();
-    const isDarkTheme = userTimeOfDay === 'night';
+    const isDarkTheme = this.timeService.getUserLocalTimeOfDay() === 'night';
     if (isDarkTheme) document.documentElement.classList.add('dark');
     this.localStorageService.set('theme', isDarkTheme ? 'dark' : 'light');
   }
