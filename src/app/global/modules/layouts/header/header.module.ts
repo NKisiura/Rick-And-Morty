@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {HeaderComponent} from "./components/header/header.component";
 import {HeaderLogoComponent} from "./components/header-logo/header-logo.component";
 import {ThemeTogglerModule} from "../../feature-components/theme-toggler/theme-toggler.module";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {ThemeTogglerModule} from "../../feature-components/theme-toggler/theme-t
   ],
   imports: [
     CommonModule,
-    ThemeTogglerModule
+    ThemeTogglerModule,
+    RouterModule
   ],
   providers: [],
   exports: [
