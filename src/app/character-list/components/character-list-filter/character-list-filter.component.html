@@ -15,6 +15,7 @@
              placeholder="Gender"
              [items]="characterGenderTypes"
              [(ngModel)]="characterListFilter.gender"
+             [searchable]="false"
              (ngModelChange)="emitCharacterListFilter()">
   </ng-select>
   <app-button [buttonName]="'Reset Filter'"

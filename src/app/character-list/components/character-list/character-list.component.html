@@ -1,5 +1,5 @@
 <div class="sticky top-[48px] sm:top-[56px] z-10">
-  <app-control-section [style.top.px]="isHideControls ? -200 : 0" class="relative top-0 lg:static w-full transition-all  duration-500">
+  <app-control-section [style.top.px]="isHideControls ? -200 : 0" class="relative top-0 lg:static w-full transition-all duration-500">
     <div class="flex flex-col gap-4 lg:flex-row justify-between">
       <app-character-list-filter
         (onCharacterListFilterChange)="getCharacterListByFilter($event)">

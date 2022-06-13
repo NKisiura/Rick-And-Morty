@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
+import {Params, Router} from "@angular/router";
 import {Observable, skip, Subject, takeUntil} from "rxjs";
 import {CharacterInterface} from "../../../global/types/character.interface";
 import {BackendErrorInterface} from "../../../global/types/backend-error.interface";
@@ -26,10 +26,14 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
   public firstEpisode$ = new Observable<EpisodeInterface | null>();
   public characterError$ = new Observable<BackendErrorInterface | null>();
 
+  public previousNavigationParams: Params;
+
   constructor(
     private router: Router,
     private store: Store
-  ) {}
+  ) {
+    this.previousNavigationParams = this.getPreviousNavigationQueryParams();
+  }
 
   ngOnInit(): void {
     this.initValues();
@@ -52,7 +56,7 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
   private initListeners(): void {
     this.character$
       .pipe(takeUntil(this.ngDestroy), skip(1))
-      .subscribe((character) => {
+      .subscribe((character: CharacterInterface | null) => {
         if (character) this.store.dispatch(getFirstEpisodeAction({id: CharacterDetailsComponent.getFirstEpisodeIdFromCharacter(character)}));
       })
   }
@@ -64,6 +68,10 @@ export class CharacterDetailsComponent implements OnInit, OnDestroy {
 
   private getCharacterIdFromCurrentRoute(): number {
     return CharacterDetailsComponent.getIdFromUrl(this.router.url);
+  }
+
+  private getPreviousNavigationQueryParams(): Params {
+    return this.router.getCurrentNavigation()?.previousNavigation?.extras.queryParams || {};
   }
 
   private static getFirstEpisodeIdFromCharacter(character: CharacterInterface): number {

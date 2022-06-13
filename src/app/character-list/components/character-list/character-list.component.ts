@@ -68,7 +68,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   private checkIsNeedToHideControls(scrollPairValues: [number, number]): void {
-    this.isHideControls = scrollPairValues[0] < scrollPairValues[1] && scrollPairValues[1] > 50;
+    this.isHideControls = scrollPairValues[0] < scrollPairValues[1];
   }
 
   public async getCharacterListByFilter(filter: CharacterListFilterInterface): Promise<void> {

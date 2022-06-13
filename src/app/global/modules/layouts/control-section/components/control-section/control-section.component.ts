@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {Router} from "@angular/router";
+import {Params, Router} from "@angular/router";
 import {faLongArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -9,10 +9,11 @@ import {faLongArrowLeft} from "@fortawesome/free-solid-svg-icons";
 export class ControlSectionComponent {
   public iconLongArrowLeft = faLongArrowLeft
   @Input() public hasBackToCharacterListButton: boolean = false;
+  @Input() public backToCharactersListQueryParams: Params = {};
 
   constructor(private router: Router) {}
 
   public async navigateToCharacterList(): Promise<void> {
-    await this.router.navigate(['characters'])
+    await this.router.navigate(['characters'], {queryParams: this.backToCharactersListQueryParams});
   }
 }
